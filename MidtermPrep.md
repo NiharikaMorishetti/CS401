@@ -73,11 +73,3 @@ There will be 9 pages.
 
 The sample questions will similar to the front part of exam.
 
-[MyBlog](http://shiyuanchen.com)
-
-
-
-- [ ] Chapter 1
-- [ ] Chapter 2
-- [ ] Chapter 3
-- [ ] Chapter 4
