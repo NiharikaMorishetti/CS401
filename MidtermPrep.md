@@ -73,3 +73,5 @@ There will be 9 pages.
 
 The sample questions will similar to the front part of exam.
 
+Know preconditions and postconditions of every method.
+
