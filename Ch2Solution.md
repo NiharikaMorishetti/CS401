@@ -181,28 +181,200 @@ public class LLNode<T>
   protected LLNode<T> link;
   public LLNode(T info)
   {
-    
+    this.info = info;
+    link = null;
   }
 }
 ```
 
-
-
 **draw figures representing a sequence of operations on a linked list**
 
-**implement the Stack ADT using an array**
+![new](/Users/YC/Desktop/CS401/images/new.png)
 
-**implement the Stack ADT using the Java library’s ArrayList class**
+![traversal](/Users/YC/Desktop/CS401/images/traversal.png)**implement the Stack ADT using an array**
+
+```java
+package ch02.stacks;
+
+public class ArrayBoundedStack<T> implements StackInterface<T> 
+{
+  protected final int DEFCAP = 100; // default capacity
+  protected T[] elements;           // holds stack elements
+  protected int topIndex = -1;      // index of top element in stack
+
+  public ArrayBoundedStack() 
+  {
+    elements = (T[]) new Object[DEFCAP];
+  }
+
+  public ArrayBoundedStack(int maxSize) 
+  {
+    elements = (T[]) new Object[maxSize];
+  }
+
+  public void push(T element)
+  // Throws StackOverflowException if this stack is full,
+  // otherwise places element at the top of this stack.
+  {      
+    if (isFull())
+      throw new StackOverflowException("Push attempted on a full stack.");
+    else
+    {
+      topIndex++;
+      elements[topIndex] = element;
+    }
+  }
+
+  public void pop()
+  // Throws StackUnderflowException if this stack is empty,
+  // otherwise removes top element from this stack.
+  {                  
+    if (isEmpty())
+      throw new StackUnderflowException("Pop attempted on an empty stack.");
+    else
+    {
+      elements[topIndex] = null;
+      topIndex--;
+    }
+  }
+
+  public T top()
+  // Throws StackUnderflowException if this stack is empty,
+  // otherwise returns top element of this stack.
+  {                 
+    T topOfStack = null;
+    if (isEmpty())
+      throw new StackUnderflowException("Top attempted on an empty stack.");
+    else
+      topOfStack = elements[topIndex];
+    return topOfStack;
+  }
+
+  public boolean isEmpty()
+  // Returns true if this stack is empty, otherwise returns false.
+  {              
+    return (topIndex == -1); 
+  }
+
+  public boolean isFull()
+  // Returns true if this stack is full, otherwise returns false.
+  {              
+    return (topIndex == (elements.length - 1));
+  }
+}**implement the Stack ADT using the Java library’s ArrayList class**
+```
 
 **implement the Stack ADT using a linked list**
 
+```java
+package ch02.stacks;
+
+import support.LLNode;
+
+public class LinkedStack<T> implements StackInterface<T>
+{
+  protected LLNode<T> top;   // reference to the top of this stack
+
+  public LinkedStack()
+  {
+    top = null;
+  }
+
+  public void push(T element)
+  // Places element at the top of this stack.
+  { 
+    LLNode<T> newNode = new LLNode<T>(element);
+    newNode.setLink(top);
+    top = newNode;
+  }     
+
+  public void pop()
+  // Throws StackUnderflowException if this stack is empty,
+  // otherwise removes top element from this stack.
+  {                  
+    if (isEmpty())
+      throw new StackUnderflowException("Pop attempted on an empty stack.");
+    else
+      top = top.getLink();
+  }
+
+  public T top()
+  // Throws StackUnderflowException if this stack is empty,
+  // otherwise returns top element of this stack.
+  {                 
+    if (isEmpty())
+      throw new StackUnderflowException("Top attempted on an empty stack.");
+    else
+      return top.getInfo();
+  }
+
+  public boolean isEmpty()
+  // Returns true if this stack is empty, otherwise returns false.
+  {              
+    return (top == null); 
+  }
+
+  public boolean isFull()
+  // Returns false - a linked stack is never full
+  {              
+      return false;
+  }
+
+}
+```
+
 **draw diagrams showing the effect of stack operations for a particular implementation of a stack**
+
+![push](/Users/YC/Desktop/CS401/images/push.png)
+
+![pop](/Users/YC/Desktop/CS401/images/pop.png)
 
 **determine the order of growth efficiency of stack implementation operations**
 
+
+
 **throw Java exceptions from within an ADT and catch them within an application that uses the ADT**
 
+```java
+package ch02.stacks;
+
+public class StackOverflowException extends RuntimeException
+{
+  public StackOverflowException()
+  {
+    super();
+  }
+
+  public StackOverflowException(String message)
+  {
+    super(message);
+  }
+}
+```
+
+```java
+package ch02.stacks;
+
+public class StackUnderflowException extends RuntimeException
+{
+  public StackUnderflowException()
+  {
+    super();
+  }
+
+  public StackUnderflowException(String message)
+  {
+    super(message);
+  }
+}
+```
+
 **evaluate a postfix expression “by hand”**
+
+```
+5 7 + 6 2 - *
+(5+7)*(6-2)
+```
 
 **use the Stack ADT as a component of an application**
 
