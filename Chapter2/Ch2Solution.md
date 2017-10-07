@@ -325,13 +325,17 @@ public class LinkedStack<T> implements StackInterface<T>
 
 **draw diagrams showing the effect of stack operations for a particular implementation of a stack**
 
-![push](/Users/YC/Desktop/CS401/images/push.png)
+![new](images/new.png)
 
-![pop](/Users/YC/Desktop/CS401/images/pop.png)
+
+
+![traversal](images/traversal.png)
 
 **determine the order of growth efficiency of stack implementation operations**
 
+![pop](images/pop.png)
 
+![push](images/push.png)
 
 **throw Java exceptions from within an ADT and catch them within an application that uses the ADT**
 
