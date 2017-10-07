@@ -189,9 +189,7 @@ public class LLNode<T>
 
 **draw figures representing a sequence of operations on a linked list**
 
-![new](/Users/YC/Desktop/CS401/images/new.png)
-
-![traversal](/Users/YC/Desktop/CS401/images/traversal.png)**implement the Stack ADT using an array**
+**implement the Stack ADT using an array**
 
 ```java
 package ch02.stacks;
