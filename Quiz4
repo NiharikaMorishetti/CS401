@@ -1,0 +1,44 @@
+Question1.
+Part 1
+int A=10
+Int B=10
+"int A == int B" evaluates to _____
+  Answer:true
+  
+Part2
+//// check lecture notes ch05 slide 19
+
+Question2
+public boolean add(T element)
+//Attempts to add element to this collectio.
+//Returns ____(true) if successful, ____(false) otherwise.
+{
+if(isFull())
+  return ____;(false)
+else
+{
+  elements[numElements] = element;
+  _______(numElemnents++);
+  return _____(true);
+}
+}
+
+
+Question3
+Remove operation of Linked-base Collection ADT
+public ___ remove(T target)   boolean
+{
+_____(target); find(target)
+if found
+{
+  if(head == location)
+    head = ______();   head.getLink();
+  else
+     ______(location.getLink());  previous.setLink
+  numElements--;
+ }
+return found;
+}
+
+
+ 
